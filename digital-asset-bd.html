@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Asset BD – Digital Products &amp; Tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#0db561;--green-d:#087a42;--ink:#10201a;--muted:#4d5d6d;--bg:#f2f7f6;--card:#fff;--line:#dfe8e5;--soft:#e4f6ec;--dark:#0b1a14}
+@media (prefers-color-scheme:dark){:root{--ink:#eaf3ef;--muted:#9db1aa;--bg:#0b1a14;--card:#12261d;--line:#1f3a2e;--soft:#133524;--dark:#06100b}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Inter Tight",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+h1,h2,h3,.logo{font-family:"Space Grotesk","Inter Tight",sans-serif;line-height:1.15;margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-size:1.5rem;font-weight:700}.logo b{color:var(--green)}
+nav{display:flex;gap:22px;font-weight:500}nav a:hover{color:var(--green)}
+.cartbtn{background:var(--green);color:#fff;border:0;border-radius:999px;padding:9px 18px;font:600 .95rem "Inter Tight",sans-serif;cursor:pointer}
+.cartbtn:focus-visible,.btn:focus-visible,.cat:focus-visible,.chip:focus-visible,.add:focus-visible,nav a:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:46ch;margin:18px 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;font-weight:600;border:2px solid var(--green);cursor:pointer;font-size:1rem}
+.btn.p{background:var(--green);color:#fff}.btn.s{color:var(--green)}
+.heroart{background:linear-gradient(140deg,var(--soft),transparent);border-radius:32px;min-height:300px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.heroart img{max-width:100%;display:block}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 56px}
+.trust div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.trust h3{font-size:1rem;margin-bottom:4px}.trust p{margin:0;font-size:.88rem;color:var(--muted)}
+section{margin-bottom:64px}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.sh h2{font-size:clamp(1.5rem,3vw,2.1rem)}.sh p{margin:6px 0 0;color:var(--muted)}
+.cats{display:grid;grid-template-columns:repeat(8,1fr);gap:12px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 8px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;font:500 .92rem "Inter Tight",sans-serif;color:var(--ink)}
+.cat:hover{border-color:var(--green)}
+.cat img,.cat .ph{width:52px;height:52px;object-fit:contain;border-radius:12px}
+.ph{background:var(--soft);color:var(--green-d);display:flex;align-items:center;justify-content:center;font:700 1.4rem "Space Grotesk"}
+.offer{background:var(--dark);color:#fff;border-radius:24px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.offer h2{font-size:1.6rem}.offer p{margin:4px 0 0;color:#a9c7b9}
+.cd{display:flex;gap:10px}.cd div{background:rgba(13,181,97,.18);border:1px solid rgba(13,181,97,.5);border-radius:12px;min-width:64px;padding:8px;text-align:center}
+.cd b{display:block;font:700 1.5rem "Space Grotesk"}.cd small{color:#a9c7b9}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 18px;cursor:pointer;font:500 .92rem "Inter Tight",sans-serif}
+.chip[aria-pressed=true]{background:var(--green);border-color:var(--green);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:18px;text-align:center;color:#fff;font:700 1.15rem "Space Grotesk";position:relative}
+.off{position:absolute;top:10px;left:10px;background:#fff;color:var(--green-d);font:700 .78rem "Inter Tight";border-radius:999px;padding:3px 10px}
+.pb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pb small{color:var(--muted)}.pb h3{font-size:1rem;font-family:"Inter Tight";font-weight:600;line-height:1.3}
+.price{margin-top:auto;display:flex;align-items:baseline;gap:8px}.price b{font:700 1.25rem "Space Grotesk";color:var(--green-d)}
+@media (prefers-color-scheme:dark){.price b{color:var(--green)}}
+.price s{color:var(--muted);font-size:.9rem}
+.add{border:2px solid var(--green);background:transparent;color:var(--green);border-radius:10px;padding:9px;font:600 .92rem "Inter Tight",sans-serif;cursor:pointer}
+.add:hover,.add.done{background:var(--green);color:#fff}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px}
+.step::before{counter-increment:s;content:counter(s);display:flex;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;align-items:center;justify-content:center;font:700 1.1rem "Space Grotesk";margin-bottom:14px}
+.step h3{font-size:1.15rem;margin-bottom:6px}.step p{margin:0;color:var(--muted)}
+.about{background:var(--soft);border-radius:28px;padding:44px 32px;text-align:center}
+.about h2{font-size:clamp(1.5rem,3vw,2.2rem);max-width:22ch;margin:0 auto 12px}
+.about>p{max-width:60ch;margin:0 auto 28px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stats b{display:block;font:700 2.4rem "Space Grotesk";color:var(--green-d)}
+@media (prefers-color-scheme:dark){.stats b{color:var(--green)}}
+footer{background:var(--dark);color:#cfe2d8;padding:48px 0 24px}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:28px}
+footer h4{margin:0 0 12px;color:#fff;font-family:"Space Grotesk"}footer a{display:block;padding:3px 0;color:#a9c7b9}footer a:hover{color:var(--green)}
+.copy{border-top:1px solid #1f3a2e;margin-top:32px;padding-top:18px;font-size:.88rem;color:#7f9d8f}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(4,1fr)}.trust{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.fg{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){nav{display:none}.steps,.stats{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}.cats{grid-template-columns:repeat(2,1fr)}.grid{gap:12px}.hero{padding-top:36px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.logo{white-space:nowrap}
+.hero>div:first-child>*{opacity:0;transform:translateY(22px);animation:up .7s cubic-bezier(.2,.7,.2,1) forwards}
+.hero>div:first-child>*:nth-child(2){animation-delay:.12s}.hero>div:first-child>*:nth-child(3){animation-delay:.24s}
+.heroart{position:relative;padding:20px;opacity:0;animation:up .9s .2s cubic-bezier(.2,.7,.2,1) forwards}
+.heroart img{animation:float 5s ease-in-out infinite}
+.heroart img+img{position:absolute;right:6%;bottom:4%;width:34%;animation-duration:6.5s;animation-delay:-2s}
+.heroart::before{content:"";position:absolute;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(13,181,97,.35),transparent 70%);animation:pulse 4s ease-in-out infinite}
+.heroart img{position:relative}
+.heroart img+img{position:absolute}
+@keyframes up{to{opacity:1;transform:none}}
+@keyframes float{50%{transform:translateY(-14px)}}
+@keyframes pulse{50%{transform:scale(1.18);opacity:.6}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s cubic-bezier(.2,.7,.2,1)}.rv.in{opacity:1;transform:none}
+.tick{overflow:hidden;background:var(--green);color:#fff;border-radius:14px;margin:0 0 56px;padding:12px 0;white-space:nowrap}
+.tick div{display:inline-flex;gap:44px;padding-right:44px;animation:mq 26s linear infinite;font:600 1rem "Space Grotesk"}
+.tick:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.btn,.add,.cartbtn{transition:transform .2s,background .2s,color .2s,box-shadow .2s}
+.btn:hover,.cartbtn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(13,181,97,.35)}
+.btn.p{background-image:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);background-size:250% 100%;background-position:150% 0;background-color:var(--green)}
+.btn.p:hover{background-position:-50% 0;transition:background-position .8s,transform .2s}
+.cat,.pc,.trust div,.step{transition:transform .25s,border-color .25s,box-shadow .25s}
+.cat:hover,.pc:hover,.trust div:hover,.step:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(13,181,97,.18)}
+.cat img{transition:transform .35s}.cat:hover img{transform:scale(1.15) rotate(-4deg)}
+.thumb{overflow:hidden;background-color:var(--soft)}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pc:hover .thumb img{transform:scale(1.08)}
+.thumb{aspect-ratio:1/1}
+.off{z-index:2}
+.pc.pop{animation:pop .45s cubic-bezier(.2,.7,.2,1) both}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(14px)}}
+
+.offer{position:relative;overflow:hidden}
+.offer::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 40%,rgba(13,181,97,.22) 50%,transparent 60%);transform:translateX(-100%);animation:sweep 5s ease-in-out infinite}
+@keyframes sweep{60%,100%{transform:translateX(100%)}}
+.cartbtn.bump{animation:bump .35s}
+@keyframes bump{40%{transform:scale(1.18)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.hero>div:first-child>*,.heroart{opacity:1!important;transform:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#top">Digital Asset <b>BD</b></a>
+<nav aria-label="Main"><a href="#top">Home</a><a href="#products">Products</a><a href="#how">How to buy</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<button class="cartbtn" id="cartbtn" type="button">Cart (<span id="cc">0</span>)</button>
+</div></header>
+
+<main class="wrap" id="top">
+<div class="hero">
+<div>
+<h1><em>Time-saving digital</em> products &amp; tools for effortless work</h1>
+<p>Genuine subscriptions, templates, AI prompt packs and e-books at prices that make sense. Pick a product, pay, and get it by email.</p>
+<div class="btns"><a class="btn p" href="#products">Shop now</a><a class="btn s" href="#how">How it works</a></div>
+</div>
+<div class="heroart"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/0e6f9560-soft-staar.png" alt="Digital products preview" onerror="this.remove()"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/okkkkkkzxdfdksf.png" alt="" onerror="this.remove()"></div>
+</div>
+
+<div class="trust">
+<div><h3>Original product</h3><p>100% original product, covered by the vendor’s warranty.</p></div>
+<div><h3>Full warranty</h3><p>One full month of warranty and support with every purchase.</p></div>
+<div><h3>Global delivery</h3><p>We send your product by email, safely, anywhere in the world.</p></div>
+<div><h3>100% secure</h3><p>Refund policy and secure payment methods.</p></div>
+</div>
+
+<div class="tick" aria-hidden="true"><div><span>AI Prompts</span><span>Graphics &amp; Design</span><span>Marketing Bundles</span><span>HTML Templates</span><span>E-Books</span><span>Software &amp; License Keys</span><span>Instant email delivery</span><span>AI Prompts</span><span>Graphics &amp; Design</span><span>Marketing Bundles</span><span>HTML Templates</span><span>E-Books</span><span>Software &amp; License Keys</span><span>Instant email delivery</span></div></div>
+
+<section aria-labelledby="ch"><div class="sh"><div><h2 id="ch">Browse by category</h2></div></div>
+<div class="cats"><button class="cat" data-f="All"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/Asset-014.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'S'}))"><span>Shop Now</span></button><button class="cat" data-f="AI Prompts"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/layer.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'A'}))"><span>AI Prompts</span></button><button class="cat" data-f="Marketing"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/Asset-07.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'M'}))"><span>Marketing</span></button><button class="cat" data-f="Graphics"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/Asset-08.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'B'}))"><span>Business</span></button><button class="cat" data-f="Marketing"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/Asset-015.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'O'}))"><span>Office</span></button><button class="cat" data-f="Web Templates"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/Untitled-design-3.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'W'}))"><span>WordPress</span></button><button class="cat" data-f="Web Templates"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/Asset-09.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'D'}))"><span>Development</span></button><button class="cat" data-f="E-Book"><img src="https://tutorials.projoss.com/wp-content/uploads/2025/03/Asset-030.png" alt="" onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ph',textContent:'E'}))"><span>E-Book</span></button></div></section>
+
+<section><div class="offer">
+<div><h2>Special offer</h2><p>Best selling products, discounted for a limited time.</p></div>
+<div class="cd" role="timer" aria-label="Offer countdown"><div><b id="h">00</b><small>Hours</small></div><div><b id="m">00</b><small>Min</small></div><div><b id="s">00</b><small>Sec</small></div></div>
+</div></section>
+
+<section id="products" aria-labelledby="ph"><div class="sh"><div><h2 id="ph">Products</h2><p id="count"></p></div></div>
+<div class="chips" id="chips"></div>
+<div class="grid" id="grid"></div></section>
+
+<section id="how" aria-labelledby="hh"><div class="sh"><div><h2 id="hh">How to buy</h2><p>Products, services and license keys</p></div></div>
+<div class="steps">
+<div class="step"><h3>Select item</h3><p>Choose your item, click Add to cart, then open the cart.</p></div>
+<div class="step"><h3>Proceed to checkout</h3><p>Continue to checkout and enter your payment information.</p></div>
+<div class="step"><h3>Payment &amp; delivery</h3><p>Use a valid email address at checkout. We send the product to that email.</p></div>
+</div></section>
+
+<section id="about" class="about">
+<h2>Genuine digital products, subscriptions &amp; license keys</h2>
+<p>Since 2022, Digital Asset BD has been your go-to place for digital products. From premium subscriptions to game top-ups and gift cards, we offer 100% genuine products at affordable prices.</p>
+<div class="stats">
+<div><b data-n="20" data-x="k">0</b>Happy customers</div><div><b data-n="10" data-x="+">0</b>Support team</div><div><b data-n="5" data-x="+">0</b>Customer rating</div><div><b data-n="50" data-x="k">0</b>Products sold</div>
+</div></section>
+</main>
+
+<footer id="contact"><div class="wrap">
+<div class="fg">
+<div><div class="logo" style="color:#fff">Digital Asset <b>BD</b></div><p style="max-width:34ch">Our main goal is to provide essential digital products &amp; services at affordable prices.</p>
+<a href="https://wa.me/8801313156409">WhatsApp: +880 1313-156409</a><a href="mailto:info@josscreative.com">info@josscreative.com</a></div>
+<div><h4>Your account</h4><a href="#products">All products</a><a href="#">My account</a><a href="#">Checkout</a><a href="#">Cart</a><a href="#">Orders</a></div>
+<div><h4>Useful links</h4><a href="#">FAQ</a><a href="#">Reviews</a><a href="#">Refund policy</a><a href="#">Track your order</a></div>
+<div><h4>Follow us</h4><a href="https://www.facebook.com/josscreativebd">Facebook</a><a href="https://t.me/buy_digital_product">Telegram</a><a href="https://www.youtube.com/@Joss_Creative">YouTube</a><a href="https://discord.gg/YcwK43awVN">Discord</a></div>
+</div>
+<div class="copy">© Digital Asset BD. All rights reserved.</div>
+</div></footer>
+
+<script>
+const P=[{"n": "30K High-Converting DFY Promo Emails Bundle", "r": 2599, "s": 699, "c": "Marketing", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/4.png"}, {"n": "10,000+ ChatGPT Prompts Bundle", "r": 2599, "s": 699, "c": "AI Prompts", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/2.png"}, {"n": "1000+ High-Quality Fitness Workout Videos", "r": 2499, "s": 399, "c": "Marketing", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/11-1.png"}, {"n": "3D Graphics Pack", "r": 4499, "s": 499, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/12.png"}, {"n": "3000 Google Bard AI Prompts Pack", "r": 4499, "s": 799, "c": "AI Prompts", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/15.png"}, {"n": "3000 AI Images Collection", "r": 2499, "s": 599, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/17.png"}, {"n": "999+ Ultimate ChatGPT Prompts for Customer Support", "r": 1499, "s": 299, "c": "AI Prompts", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/20.png"}, {"n": "1000+ High Quality Quote Images", "r": 999, "s": 199, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/21-1.png"}, {"n": "ChatGPT Masterclass", "r": 4499, "s": 599, "c": "AI Prompts", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/25.png"}, {"n": "2000 Canva Social Media Templates", "r": 2599, "s": 699, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/26.png"}, {"n": "Fresh T-shirt Designs Art Bundle", "r": 4499, "s": 699, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/27.png"}, {"n": "Graphic & Video Editing Bundle", "r": 4499, "s": 599, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/28.png"}, {"n": "150,000+ Lightroom Presets", "r": 2599, "s": 999, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/29.png"}, {"n": "25,000 Vector Icons", "r": 1499, "s": 299, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/30.png"}, {"n": "SVG Mega Bundle", "r": 2599, "s": 999, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/31.png"}, {"n": "Ebook Bundle", "r": 1499, "s": 699, "c": "E-Book", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/32.png"}, {"n": "1500 Logo Templates Bundle", "r": 2499, "s": 799, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/34.png"}, {"n": "Business Card Templates", "r": 1499, "s": 599, "c": "Graphics", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/33.png"}, {"n": "HTML Mobile Website Templates", "r": 4499, "s": 999, "c": "Web Templates", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/36.png"}, {"n": "400+ HTML Websites", "r": 4499, "s": 1599, "c": "Web Templates", "i": "https://tutorials.projoss.com/wp-content/uploads/2025/03/35.png"}];
+const colors={"AI Prompts":["#0db561","#087a42"],"Graphics":["#7456f1","#4a35b8"],"Marketing":["#ef7d00","#b85a00"],"Web Templates":["#0057ff","#0039a6"],"E-Book":["#c2185b","#8a0f42"]};
+const tk=n=>"\u09f3"+n.toLocaleString("en-US");
+const grid=document.getElementById("grid"),chips=document.getElementById("chips"),count=document.getElementById("count");
+let filter="All",cart=0;
+const cats=["All",...new Set(P.map(p=>p.c))];
+chips.innerHTML=cats.map(c=>`<button class="chip" type="button" data-f="${c}" aria-pressed="${c===filter}">${c}</button>`).join("");
+function render(){
+  const list=P.filter(p=>filter==="All"||p.c===filter);
+  count.textContent=list.length+" product"+(list.length===1?"":"s");
+  grid.innerHTML=list.map((p,k)=>{const [a,b]=colors[p.c];const off=Math.round((1-p.s/p.r)*100);
+    return `<article class="pc pop" style="animation-delay:${Math.min(k*40,400)}ms"><div class="thumb" style="background:linear-gradient(145deg,${a},${b})"><span class="off">-${off}%</span>${p.n.replace(/&/g,"&amp;")}<img src="${p.i}" alt="${p.n.replace(/&/g,"&amp;").replace(/\"/g,"")}" loading="lazy" onerror="this.remove()"></div><div class="pb"><small>${p.c}</small><h3>${p.n.replace(/&/g,"&amp;")}</h3><div class="price"><b>${tk(p.s)}</b><s>${tk(p.r)}</s></div><button class="add" type="button">Add to cart</button></div></article>`}).join("");
+  chips.querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",c.dataset.f===filter));
+}
+chips.addEventListener("click",e=>{const c=e.target.closest(".chip");if(c){filter=c.dataset.f;render()}});
+document.querySelector(".cats").addEventListener("click",e=>{const c=e.target.closest(".cat");if(!c)return;filter=c.dataset.f;render();document.getElementById("products").scrollIntoView()});
+grid.addEventListener("click",e=>{const b=e.target.closest(".add");if(!b||b.classList.contains("done"))return;cart++;document.getElementById("cc").textContent=cart;const cb=document.getElementById("cartbtn");cb.classList.remove("bump");void cb.offsetWidth;cb.classList.add("bump");b.textContent="Added";b.classList.add("done")});
+document.getElementById("cartbtn").addEventListener("click",()=>alert("Cart items: "+cart+"\nConnect this button to your checkout page."));
+render();
+// countdown: 24h loop
+const end=Date.now()+864e5;
+(function t(){let d=Math.max(0,end-Date.now())/1e3|0;const z=n=>String(n).padStart(2,"0");
+document.getElementById("h").textContent=z(d/3600|0);document.getElementById("m").textContent=z(d%3600/60|0);document.getElementById("s").textContent=z(d%60);setTimeout(t,1000)})();
+// scroll reveal
+const rio=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");rio.unobserve(en.target)}}),{threshold:.12});
+document.querySelectorAll("main section, .trust, .tick").forEach(el=>{el.classList.add("rv");rio.observe(el)});
+// counters
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;io.unobserve(en.target);const el=en.target,n=+el.dataset.n,x=el.dataset.x;let i=0;const id=setInterval(()=>{i++;el.textContent=Math.round(n*i/30)+x;if(i>=30)clearInterval(id)},30)}));
+document.querySelectorAll("[data-n]").forEach(el=>io.observe(el));
+</script>
+</body></html>
